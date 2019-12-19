@@ -15,7 +15,7 @@ public class WikipediaPage {
 
 //    Извлекаем ссылку из веб-элемента:
 
-    public String getLinkIviRu(){
+    public String getLinkIviRu() {
         return driver.findElement(linkIviRu).getAttribute("href"); // Получаем именно ссылку!
     }
 }

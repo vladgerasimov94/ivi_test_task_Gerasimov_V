@@ -9,14 +9,14 @@ public class GooglePlayPage {
         this.driver = driver;
     }
 
-    //    Описываем локаторы страницы
+//    Описываем локаторы страницы:
+
     public By appRaitingGooglePlay = By.xpath("//div[@class='BHMmbe']");
 
-// Берем текст атрибута
-    public String getTextWithRaitingGooglePlay(){
+    //    Извлекаем текст из атрибута:
+
+    public String getTextWithRaitingGooglePlay() {
         return driver.findElement(appRaitingGooglePlay).getText();
     }
 
-
-
-    }
+}

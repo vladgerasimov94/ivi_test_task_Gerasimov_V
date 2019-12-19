@@ -18,23 +18,23 @@ public class TestBase {
         return new SimpleDateFormat("yyyy-MM-dd" + " " + "HH:mm").format(Calendar.getInstance().getTime());
     }
 
-    @BeforeMethod
-    public void setUp(){
-        System.out.println("Привет, хозяин, запускаю автотест от: " + currentDate());
-        System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); //! Неявное ожидание
-        driver.manage().window().maximize();
-        driver.get("https://www.google.com/");
-        homeGooglePage = new HomeGooglePage(driver);
+    @BeforeMethod // Запускаем перед каждым @Test-методом
+    public void setUp() {
+        System.out.println("Привет, хозяин, запускаю автотест от: " + currentDate()); // Выводим в консоль приветствие
+        System.setProperty("webdriver.chrome.driver", "./chromedriver.exe"); // Путь к драйверу
+        driver = new ChromeDriver(); // Инициализируем драйвер
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // Неявное ожидание
+        driver.manage().window().maximize(); // Открываем браузер на весь экран
+        driver.get("https://www.google.com/"); //Переходим на стартовую страницу
+        homeGooglePage = new HomeGooglePage(driver); // передаем драйвер
         homeGooglePage.enterText("ivi"); // Ищем в гугле текст "ivi"
         String textSignInButton = homeGooglePage.getTextsignIn(); // Извлекаем текст из кнопки для авторизации в Google для проверки регистрации пользователя
         Assert.assertEquals("Войти", textSignInButton); // Проверяем, что пользователь не зарегистрирован в Google
     }
 
 
-    @AfterMethod
-    public void tearDown(){
+    @AfterMethod  // Запускаем после каждого @Test-метода
+    public void tearDown() { // Закрываем браузер
         driver.quit();
     }
 
@@ -44,7 +44,7 @@ public class TestBase {
         for (int i = 5; i >= 1; i--) { // Запускаем цикл по переходу от 5 до 1 страницы по убыванию
             int getGooglePlayLinkSize = homeGooglePage.getGooglePlayLinkSize(); // Ищем кол-во ссылок на Google Play на странцие
             if (getGooglePlayLinkSize > 0) { // Если находим > 1, то:
-                System.out.println("На странице " + i + " нашел " + getGooglePlayLinkSize + " ссылку" ); // Выводим кол-во найденных ссылок на указанной странице
+                System.out.println("На странице " + i + " нашел " + getGooglePlayLinkSize + " ссылку"); // Выводим кол-во найденных ссылок на указанной странице
                 String split = homeGooglePage.splitTextRaitingSearch(); // Вызываем  метод по разделению текста с рейтингом на массив элементов и выбираем только рейтинг
                 homeGooglePage.clickGooglePlayLink(); // Переходим по найденной ссылке
                 GooglePlayPage googlePlayPage = new GooglePlayPage(driver); // Инициализируем объект типа GooglePlayPage и передаем в него драйвер
@@ -53,7 +53,7 @@ public class TestBase {
                 System.out.println("Рейтинг из странички поиска Google " + split); // Выводим в консоль
                 Assert.assertEquals(getRaitingGP, split); // Проверяем, что рейтинг приложения на кратком контенте страницы совпадает с рейтингом при переходе
             } else {
-                System.out.println("На странице " + i + " Не нашел ссылок" ); // Иначе выводим инфо сообщение по каждой странице
+                System.out.println("На странице " + i + " Не нашел ссылок"); // Иначе выводим инфо сообщение по каждой странице
                 JavascriptExecutor jsx = (JavascriptExecutor) driver; // Вызываем интерфейс Javascript для выполнения драйвером действий на экране
                 jsx.executeScript("window.scrollBy(0, 3000)", ""); // Скроллим страницу вниз
                 homeGooglePage.clickPreviousPageButton(); // Переходим на предыдущую страницу (i - 1)
@@ -67,10 +67,10 @@ public class TestBase {
         for (int i = 5; i >= 1; i--) { // Запускаем цикл по переходу от 5 до 1 страницы по убыванию
             int getWikiLinkSize = homeGooglePage.getWikiLinkSize(); // Ищем кол-во ссылок на Википедию на странцие
             if (getWikiLinkSize > 0) { // Если находим > 1, то:
-                System.out.println("На странице " + i + " нашел " + getWikiLinkSize + " ссылку" ); // Выводим кол-во найденных ссылок на указанной странице
+                System.out.println("На странице " + i + " нашел " + getWikiLinkSize + " ссылку"); // Выводим кол-во найденных ссылок на указанной странице
                 homeGooglePage.clickWikiLink(); // Переходим по найденной ссылке
             } else {
-                System.out.println("На странице " + i + " Не нашел ссылок" ); // Иначе выводим инфо сообщение по каждой странице
+                System.out.println("На странице " + i + " Не нашел ссылок"); // Иначе выводим инфо сообщение по каждой странице
                 JavascriptExecutor jsx = (JavascriptExecutor) driver; // Вызываем интерфейс Javascript для выполнения драйвером действий на экране
                 jsx.executeScript("window.scrollBy(0, 3000)", ""); // Скроллим страницу вниз
                 homeGooglePage.clickPreviousPageButton(); // Переходим на предыдущую страницу (i - 1)
