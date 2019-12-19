@@ -5,37 +5,36 @@ import org.openqa.selenium.WebDriver;
 public class HomeGooglePage {
 
     public WebDriver driver; // Инициализируем драйвер
-
-    public HomeGooglePage(WebDriver driver) { // Создаем конструктор страницы и передаем в него вебдрайвер
+    public HomeGooglePage(WebDriver driver) { // Создаем конструктор страницы и передаем в него веб-драйвер
         this.driver = driver;
     }
 
-//    Описываем локаторы страницы
+//    Описываем локаторы страницы:
+
     private By searchField = By.xpath("//input[@name='q']");
     private By signInButton = By.xpath("//a[text()='Войти']");
     private By images = By.xpath("//a[text()='Картинки']");
-    private By settings = By.xpath("//g-header-menu[@id='ab_options']/a[contains(text(), 'Настройки')]");   // ИЛИ //a[@id='abar_button_opt']
+    private By settings = By.xpath("//g-header-menu[@id='ab_options']/a[contains(text(), 'Настройки')]");  //ToDo Удалить: ИЛИ //a[@id='abar_button_opt']
     private By searchOptions = By.xpath("//a[text()='Расширенный поиск']");
     private By imageSize = By.xpath("//div[@id='imgsz_button']");
-    private By bigImageSize = By.xpath("//div[text()='большой']"); // Если не сработает, то //div[text()='большой']/..
+    private By bigImageSize = By.xpath("//div[text()='большой']");
     private By findImages = By.xpath("//input[@value='Найти']");
-    private By bigImageFilter = By.xpath("//div[text()='Большие']"); // попробовать объединить с bigImageSize
-    private By spanText = By.xpath("//span[text()='ivi.ru']"); // Нужен для проверки кол-ва картинок со ссылками на ivi
-    private By nextPageButton = By.xpath("//span[text()='Следующая']"); // дубль из гуглплейпейдж. удалить где-то
+    private By bigImageFilter = By.xpath("//div[text()='Большие']");
+    private By linkIviInImages = By.xpath("//span[text()='ivi.ru']"); // ToDo Удалить: Нужен для проверки кол-ва картинок со ссылками на ivi
     private By previousPageButton = By.xpath("//span[text()='Предыдущая']");
     private By googlePlayLink = By.xpath("//cite[contains(text(), 'https://play.google.com')]");
     private By page5SearchResult = By.xpath("//a[@aria-label='Page 5']");
-    private By appRaitingSearch = By.xpath("//div[contains(text(), 'Рейтинг')]"); // //div[@class='slp f']
+    private By appRaitingSearch = By.xpath("//div[contains(text(), 'Рейтинг')]"); // ToDo Удалить: //div[@class='slp f']
     private By wikiLink = By.xpath("//cite[contains(text(), 'https://ru.wikipedia.org')]");
 
 
-//    Методы по работе с вебэлементами
+//    Методы по работе с веб-элементами:
 
-public void click(By locator) { // Кликаем на локатор
+public void click(By locator) { // Общий метод по клику на локатор
     driver.findElement(locator).click();
 }
 
-    public HomeGooglePage enterText(String testText){
+    public HomeGooglePage enterText(String testText){ // Вводим текст в поле и жмем Enter
         driver.findElement(searchField).sendKeys(testText);
         driver.findElement(searchField).sendKeys(Keys.ENTER);
         return this;
@@ -61,7 +60,7 @@ public void click(By locator) { // Кликаем на локатор
         return this;
     }
 
-    public HomeGooglePage clickBigImageSize(){ // Переходим в выбор размера
+    public HomeGooglePage clickBigImageSize(){ // Выбираем картинки большого размера
         click(bigImageSize);
         return this;
     }
@@ -71,9 +70,9 @@ public void click(By locator) { // Кликаем на локатор
         return this;
     }
 
+// Общий метод по переходу в картинки и применению настроек поиска по размеру. Для удобного вызова в тестах:
 
-
-    public HomeGooglePage findImagesWithBigSize(){ // Применяем настройки
+    public HomeGooglePage findImagesWithBigSize(){
         clickImages();
         clickSettings();
         clickSearchOptions();
@@ -83,9 +82,7 @@ public void click(By locator) { // Кликаем на локатор
         return this;
     }
 
-
-
-    public HomeGooglePage clickPage5SearchResult(){
+    public HomeGooglePage clickPage5SearchResult(){ // Клик на 5 страницу результатов поиска как точку отсчета для цикла
         driver.findElement(page5SearchResult).click();
         return this;
     }
@@ -95,7 +92,7 @@ public void click(By locator) { // Кликаем на локатор
         return this;
     }
 
-    //    Методы по переходам на другие страницы сайта
+//    Методы по переходам на другие страницы:
 
     public GooglePlayPage clickGooglePlayLink () {
         click(googlePlayLink);
@@ -108,45 +105,43 @@ public void click(By locator) { // Кликаем на локатор
     }
 
 
+//    Извлекаем текст из атрибутов:
 
-    //    Получаем текст атрибутов
-
-    public String getTextsignIn(){
+    public String getTextsignIn(){ // Для проверки, зарегистрирован ли пользователь
         return driver.findElement(signInButton).getText();
     }
 
-    public String getTextbigImageFilter(){
+    public String getTextbigImageFilter(){ // Для проверки примененного фильтра в результатах поиска
         return driver.findElement(bigImageFilter).getText();
     }
 
-    public String getTextWithRaiting(){
+    public String getTextWithRaiting(){ // Извлекаем текст из атрибута, содержащего инфо о рейтинге
         return driver.findElement(appRaitingSearch).getText();
     }
 
-
-
+// Метод по разделению текста на массив элементов типа String. Нужно для проверки рейтингов:
 
     public String splitTextRaitingSearch() {
         String str = getTextWithRaiting();
         String[] subStr;
-        String delimeter = " "; // Разделитель
-        subStr = str.split(delimeter); // Разделения строки str с помощью метода split()
-        String st = (subStr[1]);
+        String delimeter = " "; // Разделитель слов - пробел
+        subStr = str.split(delimeter); // Разделение строки str с помощью метода split()
+        String st = (subStr[1]); // Берем второй элемент массива (цифра с рейтингом)
         return st;
     }
 
 
-    //  Ищем Элементы на странице и получаем их количество
+//  Ищем Элементы на странице и получаем их количество
 
-    public int getLinkIviRuSize(){
-        return driver.findElements(spanText).size();
+    public int getLinkIviRuSize(){ // Количество ссылок на оф. сайт ivi
+        return driver.findElements(linkIviInImages).size();
     }
 
-    public int getGooglePlayLinkSize(){
+    public int getGooglePlayLinkSize(){ // Количество ссылок на приложение ivi в Google Play
         return driver.findElements(googlePlayLink).size();
     }
 
-    public int getWikiLinkSize(){
+    public int getWikiLinkSize(){ // Количество ссылок на ivi в Википедии
         return driver.findElements(googlePlayLink).size();
     }
 

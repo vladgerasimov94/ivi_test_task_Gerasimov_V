@@ -11,22 +11,25 @@ import java.util.concurrent.TimeUnit;
 
 public class TestBase {
 
-    public WebDriver driver;
-    public HomeGooglePage homeGooglePage;
+    public WebDriver driver; // Инициализируем драйвер
+    public HomeGooglePage homeGooglePage; // Объявляем объект типа HomeGooglePage
 
-    private static String currentDate() {
+    private static String currentDate() { // Дружественное приветствие + указание даты и времени запуска
         return new SimpleDateFormat("yyyy-MM-dd" + " " + "HH:mm").format(Calendar.getInstance().getTime());
     }
 
     @BeforeMethod
     public void setUp(){
-        System.out.println("Привет хозяин, пытаюсь запустить автотест от: " + currentDate());
+        System.out.println("Привет, хозяин, запускаю автотест от: " + currentDate());
         System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); //! Неявное ожидание
         driver.manage().window().maximize();
         driver.get("https://www.google.com/");
         homeGooglePage = new HomeGooglePage(driver);
+        homeGooglePage.enterText("ivi"); // Ищем в гугле текст "ivi"
+        String textSignInButton = homeGooglePage.getTextsignIn(); // Извлекаем текст из кнопки для авторизации в Google для проверки регистрации пользователя
+        Assert.assertEquals("Войти", textSignInButton); // Проверяем, что пользователь не зарегистрирован в Google
     }
 
 
@@ -35,39 +38,47 @@ public class TestBase {
         driver.quit();
     }
 
+// Цикл по поиску ссылок на страницах 1:5 и переходу в Google Play:
+
     protected void searchAndGoGooglePlayLinksOnPages() {
-        for (int i = 5; i >= 1; i--) { // сделал обратный переход по страницам, т.к. всяактуальная инфа всегда на первой, а цикл неплохо бы прогнать
-            int getGooglePlayLinkSize = homeGooglePage.getGooglePlayLinkSize();
-            if (getGooglePlayLinkSize > 0) {
-                System.out.println("На странице " + i + " нашел " + getGooglePlayLinkSize + " ссылку" );
-                String split = homeGooglePage.splitTextRaitingSearch();
-                homeGooglePage.clickGooglePlayLink();
-                GooglePlayPage googlePlayPage = new GooglePlayPage(driver);
-                String getRaitingGP = googlePlayPage.getTextWithRaitingGooglePlay();
-                System.out.println("Рейтинг из GooglePlay " + getRaitingGP);
-                System.out.println("Рейтинг из странички поиска Google " + split);
-                Assert.assertEquals(getRaitingGP, split);
+        for (int i = 5; i >= 1; i--) { // Запускаем цикл по переходу от 5 до 1 страницы по убыванию
+            int getGooglePlayLinkSize = homeGooglePage.getGooglePlayLinkSize(); // Ищем кол-во ссылок на Google Play на странцие
+            if (getGooglePlayLinkSize > 0) { // Если находим > 1, то:
+                System.out.println("На странице " + i + " нашел " + getGooglePlayLinkSize + " ссылку" ); // Выводим кол-во найденных ссылок на указанной странице
+                String split = homeGooglePage.splitTextRaitingSearch(); // Вызываем  метод по разделению текста с рейтингом на массив элементов и выбираем только рейтинг
+                homeGooglePage.clickGooglePlayLink(); // Переходим по найденной ссылке
+                GooglePlayPage googlePlayPage = new GooglePlayPage(driver); // Инициализируем объект типа GooglePlayPage и передаем в него драйвер
+                String getRaitingGP = googlePlayPage.getTextWithRaitingGooglePlay(); // Получаем рейтинг приложения из Google Play
+                System.out.println("Рейтинг из GooglePlay " + getRaitingGP); // Выводим в консоль
+                System.out.println("Рейтинг из странички поиска Google " + split); // Выводим в консоль
+                Assert.assertEquals(getRaitingGP, split); // Проверяем, что рейтинг приложения на кратком контенте страницы совпадает с рейтингом при переходе
             } else {
-                System.out.println("На странице " + i + " Не нашел ссылок" ); // Здесь надо сделать возврат на 1 страницу и переход в гугл плей!!!
-                JavascriptExecutor jsx = (JavascriptExecutor) driver;
-                jsx.executeScript("window.scrollBy(0, 3000)", "");
-                homeGooglePage.clickPreviousPageButton();
+                System.out.println("На странице " + i + " Не нашел ссылок" ); // Иначе выводим инфо сообщение по каждой странице
+                JavascriptExecutor jsx = (JavascriptExecutor) driver; // Вызываем интерфейс Javascript для выполнения драйвером действий на экране
+                jsx.executeScript("window.scrollBy(0, 3000)", ""); // Скроллим страницу вниз
+                homeGooglePage.clickPreviousPageButton(); // Переходим на предыдущую страницу (i - 1)
             }
         }
     }
+// Цикл по поиску ссылок на страницах 1:5 и переход на Вики:
+
 
     protected void searchAndGoWikiLinksOnPages() {
-        for (int i = 5; i >= 1; i--) { // сделал обратный переход по страницам, т.к. всяактуальная инфа всегда на первой, а цикл неплохо бы прогнать
-            int getWikiLinkSize = homeGooglePage.getWikiLinkSize();
-            if (getWikiLinkSize > 0) {
-                System.out.println("На странице " + i + " нашел " + getWikiLinkSize + " ссылку" );
-                homeGooglePage.clickWikiLink();
+        for (int i = 5; i >= 1; i--) { // Запускаем цикл по переходу от 5 до 1 страницы по убыванию
+            int getWikiLinkSize = homeGooglePage.getWikiLinkSize(); // Ищем кол-во ссылок на Википедию на странцие
+            if (getWikiLinkSize > 0) { // Если находим > 1, то:
+                System.out.println("На странице " + i + " нашел " + getWikiLinkSize + " ссылку" ); // Выводим кол-во найденных ссылок на указанной странице
+                homeGooglePage.clickWikiLink(); // Переходим по найденной ссылке
             } else {
-                System.out.println("На странице " + i + " Не нашел ссылок" ); // Здесь надо сделать возврат на 1 страницу и переход в гугл плей!!!
-                JavascriptExecutor jsx = (JavascriptExecutor) driver;
-                jsx.executeScript("window.scrollBy(0, 3000)", "");
-                homeGooglePage.clickPreviousPageButton();
+                System.out.println("На странице " + i + " Не нашел ссылок" ); // Иначе выводим инфо сообщение по каждой странице
+                JavascriptExecutor jsx = (JavascriptExecutor) driver; // Вызываем интерфейс Javascript для выполнения драйвером действий на экране
+                jsx.executeScript("window.scrollBy(0, 3000)", ""); // Скроллим страницу вниз
+                homeGooglePage.clickPreviousPageButton(); // Переходим на предыдущую страницу (i - 1)
             }
         }
     }
+    /*
+    сделал обратный переход по страницам, начиная с 5,
+    т.к. самые популярные результаты всегда на 1 стр., + ссылка на оф. источник будет одна.
+     */
 }

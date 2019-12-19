@@ -9,12 +9,13 @@ public class WikipediaPage {
         this.driver = driver;
     }
 
+//    Описываем локаторы страницы:
 
-    //    Описываем локаторы страницы
-    public By linkIviRu = By.xpath("//table[@class='infobox']//a[text()='ivi.ru']");    //   //a[text()='ivi.ru']
+    public By linkIviRu = By.xpath("//a[text()='ivi.ru']"); // Ссылка из Вики на оф. сайт ivi
 
+//    Извлекаем ссылку из веб-элемента:
 
-    public String getTextInLink(){
-        return driver.findElement(linkIviRu).getText();
+    public String getLinkIviRu(){
+        return driver.findElement(linkIviRu).getAttribute("href"); // Получаем именно ссылку!
     }
 }

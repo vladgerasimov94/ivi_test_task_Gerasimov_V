@@ -9,7 +9,6 @@ public class GooglePlayPage {
         this.driver = driver;
     }
 
-
     //    Описываем локаторы страницы
     public By appRaitingGooglePlay = By.xpath("//div[@class='BHMmbe']");
 
