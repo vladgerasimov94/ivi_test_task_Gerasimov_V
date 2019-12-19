@@ -1,0 +1,9 @@
+<suite name="runAllTests" >
+    <test name="UploadDebtor" >
+        <classes>
+            <class name="TestsGooglePlay" />
+            <class name="TestsImagesLinks" />
+            <class name="TestsWiki" />
+        </classes>
+    </test>
+</suite>
