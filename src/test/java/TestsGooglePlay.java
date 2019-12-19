@@ -11,22 +11,28 @@ public class TestsGooglePlay extends TestBase {
         String textSignInButton = homeGooglePage.getTextsignIn();
         Assert.assertEquals("Войти", textSignInButton);
         homeGooglePage.clickPage5SearchResult();
-        searchLinksOnPages();
+        searchGooglePlayLinksOnPages();
         GooglePlayPage googlePlayPage = new GooglePlayPage(driver);
-        String getRaitingGP = googlePlayPage.getTextWithRaitingGooglePlay();
-        System.out.println("Адын " + getRaitingGP);
+//        String getRaitingGP = googlePlayPage.getTextWithRaitingGooglePlay();
+//        System.out.println("Рейтинг из GooglePlay " + getRaitingGP);
+//        System.out.println(homeGooglePage.splitTextRaitingSearch()); Не работает!!!
     }
 
 
 
 
-    private void searchLinksOnPages() {
+    private void searchGooglePlayLinksOnPages() {
         for (int i = 5; i >= 1; i--) { // сделал обратный переход по страницам, т.к. всяактуальная инфа всегда на первой, а цикл неплохо бы прогнать
             int getGooglePlayLinkSize = homeGooglePage.getGooglePlayLinkSize();
             if (getGooglePlayLinkSize > 0) {
                 System.out.println("На странице " + i + " нашел " + getGooglePlayLinkSize + " ссылку" );
-                homeGooglePage.splitTextRaitingSearch();
+                String split = homeGooglePage.splitTextRaitingSearch();
                 homeGooglePage.clickGooglePlayLink();
+                GooglePlayPage googlePlayPage = new GooglePlayPage(driver);
+                String getRaitingGP = googlePlayPage.getTextWithRaitingGooglePlay();
+                System.out.println("Рейтинг из GooglePlay " + getRaitingGP);
+                System.out.println("Рейтинг из странички поиска Google " + split);
+                Assert.assertEquals(getRaitingGP, split);
             } else {
                 System.out.println("На странице " + i + " Не нашел ссылок" ); // Здесь надо сделать возврат на 1 страницу и переход в гугл плей!!!
                 JavascriptExecutor jsx = (JavascriptExecutor) driver;

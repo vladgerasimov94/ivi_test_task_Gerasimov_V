@@ -86,10 +86,10 @@ public void click(By locator) { // Кликаем на локатор
         return this;
     }
 
-    public HomeGooglePage clickNextPageButton () {
-        click(nextPageButton);
-        return this;
-    }
+//    public HomeGooglePage clickNextPageButton () { ToDo Удалить, т.к. используем переход на предыдущ. стр.
+//        click(nextPageButton);
+//        return this;
+//    }
 
 
 
@@ -110,7 +110,7 @@ public void click(By locator) { // Кликаем на локатор
         return new GooglePlayPage(driver);
     }
 
-    public WikipediaPage wikiGooglePlayLink () {
+    public WikipediaPage clickWikiLink () {
         click(wikiLink);
         return new WikipediaPage(driver);
     }
@@ -131,7 +131,7 @@ public void click(By locator) { // Кликаем на локатор
         return driver.findElement(appRaitingSearch).getText();
     }
 
-//    public String getWikiLink(){
+//    public String getWikiLink(){ ToDo Удалить, т.к. мы считываем кол-во ниже
 //        return driver.findElement(wikiLink).getText();
 //    }
 
@@ -144,7 +144,7 @@ public void click(By locator) { // Кликаем на локатор
         String delimeter = " "; // Разделитель
         subStr = str.split(delimeter); // Разделения строки str с помощью метода split()
         String st = (subStr[1]);
-        System.out.println(st);
+//        System.out.println("Рейтинг из странички поиска Google " + st);
         return st;
     }
 

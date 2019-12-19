@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a65656f1-d2f5-4585-a473-bd72eecfd392" name="Default Changelist" comment="Оптимизировал тесты и убрал лишний закомментированный код">
+    <list default="true" id="a65656f1-d2f5-4585-a473-bd72eecfd392" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GoogleImagesPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HomeGooglePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HomeGooglePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestsGooglePlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestsGooglePlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestsWiki.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestsWiki.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -30,25 +35,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TestBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="26" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1097#1098#0" expanded="true" />
-                <element signature="e#1126#1127#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/TestsImagesLinks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="51">
+              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/TestsGooglePlay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="32" column="76" selection-start-line="32" selection-start-column="76" selection-end-line="32" selection-end-column="76" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,10 +60,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TestsGooglePlay.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HomeGooglePage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="26" column="104" selection-start-line="26" selection-start-column="104" selection-end-line="26" selection-end-column="104" />
+            <state relative-caret-position="270">
+              <caret line="147" column="13" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/TestsWiki.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+            <state relative-caret-position="561">
+              <caret line="33" column="47" lean-forward="true" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,9 +84,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/TestBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1097#1098#0" expanded="true" />
+                <element signature="e#1126#1127#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GooglePlayPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="626">
+            <state relative-caret-position="714">
               <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -112,20 +129,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/HomeGooglePage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="112" column="38" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4193#4194#0" expanded="true" />
-                <element signature="e#4262#4263#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -142,6 +145,7 @@
       <find>//div[@class='slp f</find>
       <find>spli</find>
       <find>splitText</find>
+      <find>clickGooglePlayLink</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,13 +157,13 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/HomeGoogle.java" />
         <option value="$PROJECT_DIR$/src/main/java/GoogleImagesPage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/HomeGooglePage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/TestsGooglePlay.java" />
         <option value="$PROJECT_DIR$/src/main/java/GooglePlayPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/WikipediaPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TestsImagesLinks.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestBase.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestsWiki.java" />
-        <option value="$PROJECT_DIR$/src/test/java/TestsImagesLinks.java" />
+        <option value="$PROJECT_DIR$/src/main/java/HomeGooglePage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TestsGooglePlay.java" />
       </list>
     </option>
   </component>
@@ -237,7 +241,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.TestsImagesLinks.searchBigImagesWithLinks">
+  <component name="RunManager" selected="TestNG.TestsGooglePlay.testGooglePlay">
     <configuration name="TestsGooglePlay.searchBigImagesWithLinks" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ivi_test_task.test" />
       <option name="PACKAGE_NAME" value="" />
@@ -300,9 +304,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.TestsImagesLinks.searchBigImagesWithLinks" />
-        <item itemvalue="TestNG.TestsWiki.wikiTests" />
         <item itemvalue="TestNG.TestsGooglePlay.testGooglePlay" />
+        <item itemvalue="TestNG.TestsWiki.wikiTests" />
+        <item itemvalue="TestNG.TestsImagesLinks.searchBigImagesWithLinks" />
         <item itemvalue="TestNG.TestsGooglePlay.searchBigImagesWithLinks" />
         <item itemvalue="TestNG.TestsWiki.searchBigImagesWithLinks" />
       </list>
@@ -347,58 +351,65 @@
       <option name="project" value="LOCAL" />
       <updated>1576756588738</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Добавил chromedriver в проект">
+      <created>1576757125163</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1576757125163</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestsGooglePlay_testGooglePlay - 2019.12.19 at 13h 20m 04s.xml">
+    <history-entry file="TestsWiki_wikiTests - 2019.12.19 at 16h 07m 28s.xml">
+      <configuration name="TestsWiki.wikiTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestsGooglePlay_testGooglePlay - 2019.12.19 at 16h 09m 38s.xml">
       <configuration name="TestsGooglePlay.testGooglePlay" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestsWiki_wikiTests - 2019.12.19 at 13h 22m 11s.xml">
+    <history-entry file="TestsGooglePlay_testGooglePlay - 2019.12.19 at 16h 14m 01s.xml">
+      <configuration name="TestsGooglePlay.testGooglePlay" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="TestsWiki_wikiTests - 2019.12.19 at 16h 15m 04s.xml">
       <configuration name="TestsWiki.wikiTests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestsWiki_wikiTests - 2019.12.19 at 13h 23m 33s.xml">
-      <configuration name="TestsWiki.wikiTests" configurationId="TestNG" />
+    <history-entry file="TestsGooglePlay_testGooglePlay - 2019.12.19 at 16h 19m 54s.xml">
+      <configuration name="TestsGooglePlay.testGooglePlay" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestsWiki_wikiTests - 2019.12.19 at 13h 29m 49s.xml">
-      <configuration name="TestsWiki.wikiTests" configurationId="TestNG" />
+    <history-entry file="TestsGooglePlay_testGooglePlay - 2019.12.19 at 16h 21m 44s.xml">
+      <configuration name="TestsGooglePlay.testGooglePlay" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestsWiki_wikiTests - 2019.12.19 at 14h 39m 03s.xml">
-      <configuration name="TestsWiki.wikiTests" configurationId="TestNG" />
+    <history-entry file="TestsGooglePlay_testGooglePlay - 2019.12.19 at 16h 31m 55s.xml">
+      <configuration name="TestsGooglePlay.testGooglePlay" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestsWiki_wikiTests - 2019.12.19 at 14h 40m 25s.xml">
-      <configuration name="TestsWiki.wikiTests" configurationId="TestNG" />
+    <history-entry file="TestsGooglePlay_testGooglePlay - 2019.12.19 at 16h 33m 25s.xml">
+      <configuration name="TestsGooglePlay.testGooglePlay" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestsWiki_wikiTests - 2019.12.19 at 14h 42m 07s.xml">
-      <configuration name="TestsWiki.wikiTests" configurationId="TestNG" />
+    <history-entry file="TestsGooglePlay_testGooglePlay - 2019.12.19 at 16h 35m 31s.xml">
+      <configuration name="TestsGooglePlay.testGooglePlay" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestsWiki_wikiTests - 2019.12.19 at 14h 44m 11s.xml">
-      <configuration name="TestsWiki.wikiTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="TestsImagesLinks_searchBigImagesWithLinks - 2019.12.19 at 14h 54m 10s.xml">
-      <configuration name="TestsImagesLinks.searchBigImagesWithLinks" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="TestsImagesLinks_searchBigImagesWithLinks - 2019.12.19 at 14h 55m 52s.xml">
-      <configuration name="TestsImagesLinks.searchBigImagesWithLinks" configurationId="TestNG" />
+    <history-entry file="TestsGooglePlay_testGooglePlay - 2019.12.19 at 16h 38m 50s.xml">
+      <configuration name="TestsGooglePlay.testGooglePlay" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22636104" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22636104" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6447602" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3243607" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.35935396" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.04037685" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.04037685" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.26917902" />
@@ -442,7 +453,8 @@
     <MESSAGE value="Восстановил работу тестов по переходу в гуглПлей и метод сплит&#10;Начал корректировку тестов по Вики" />
     <MESSAGE value="Скорректировал тест по вики" />
     <MESSAGE value="Оптимизировал тесты и убрал лишний закомментированный код" />
-    <option name="LAST_COMMIT_MESSAGE" value="Оптимизировал тесты и убрал лишний закомментированный код" />
+    <MESSAGE value="Добавил chromedriver в проект" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил chromedriver в проект" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build.gradle">
@@ -514,16 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="132" selection-start-line="132" selection-end-line="132" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GoogleImagesPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -624,28 +626,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/HomeGooglePage.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/GoogleImagesPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="112" column="38" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
+        <state relative-caret-position="51">
+          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4193#4194#0" expanded="true" />
-            <element signature="e#4262#4263#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GooglePlayPage.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestsImagesLinks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#201#202#0" expanded="true" />
-            <element signature="e#298#299#0" expanded="true" />
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#570#571#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -664,10 +660,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GooglePlayPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#201#202#0" expanded="true" />
+            <element signature="e#298#299#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#570#571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1097#1098#0" expanded="true" />
+            <element signature="e#1126#1127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestsWiki.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+        <state relative-caret-position="561">
+          <caret line="33" column="47" lean-forward="true" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HomeGooglePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="147" column="13" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -676,32 +708,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestsGooglePlay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="26" column="104" selection-start-line="26" selection-start-column="104" selection-end-line="26" selection-end-column="104" />
+        <state relative-caret-position="403">
+          <caret line="32" column="76" selection-start-line="32" selection-start-column="76" selection-end-line="32" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestsImagesLinks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1097#1098#0" expanded="true" />
-            <element signature="e#1126#1127#0" expanded="true" />
           </folding>
         </state>
       </provider>

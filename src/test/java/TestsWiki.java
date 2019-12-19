@@ -31,7 +31,7 @@ public class TestsWiki extends TestBase {
             int getWikiLinkSize = homeGooglePage.getWikiLinkSize();
             if (getWikiLinkSize > 0) {
                 System.out.println("На странице " + i + " нашел " + getWikiLinkSize + " ссылку" );
-                homeGooglePage.wikiGooglePlayLink();
+                homeGooglePage.clickWikiLink();
             } else {
                 System.out.println("На странице " + i + " Не нашел ссылок" ); // Здесь надо сделать возврат на 1 страницу и переход в гугл плей!!!
                 JavascriptExecutor jsx = (JavascriptExecutor) driver;
