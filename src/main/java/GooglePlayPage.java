@@ -3,19 +3,43 @@ import org.openqa.selenium.WebDriver;
 
 public class GooglePlayPage {
 
-    private WebDriver driver; // РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РґСЂР°Р№РІРµСЂ
+    public WebDriver driver; // Инициализируем драйвер
 
-    public GooglePlayPage(WebDriver driver) { // РЎРѕР·РґР°РµРј РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃС‚СЂР°РЅРёС†С‹ Рё РїРµСЂРµРґР°РµРј РІ РЅРµРіРѕ РІРµР±РґСЂР°Р№РІРµСЂ
+    public GooglePlayPage(WebDriver driver) { // Создаем конструктор страницы и передаем в него вебдрайвер
         this.driver = driver;
     }
+    GooglePlayPage googlePlayPage;
 
-    //    РћРїРёСЃС‹РІР°РµРј Р»РѕРєР°С‚РѕСЂС‹ СЃС‚СЂР°РЅРёС†С‹
+    //    Описываем локаторы страницы
+    public By appRaitingGooglePlay = By.xpath("//div[@class='BHMmbe']");
 
-//    private By nextPageButton = By.xpath("//span[text()='РЎР»РµРґСѓСЋС‰Р°СЏ']");
+
+    public String getTextWithRaitingGooglePlay(){
+        return driver.findElement(appRaitingGooglePlay).getText();
+    }
+
+//    public void splitTextGP(String pageTextWithRaiting) {
+//        String str = pageTextWithRaiting;
+//        String[] subStr;
+//        String delimeter = " "; // Разделитель
+//        subStr = str.split(delimeter); // Разделения строки str с помощью метода split()
+//        System.out.println(subStr[1]);
+//    }
+
+
+
+
+
+
+
+
+
+
+//    private By nextPageButton = By.xpath("//span[text()='Следующая']");
 //
 //
-//    //    РњРµС‚РѕРґС‹ РїРѕ СЂР°Р±РѕС‚Рµ СЃ РІРµР±СЌР»РµРјРµРЅС‚Р°РјРё
-//    public void click(By locator) { // РљР»РёРєР°РµРј РЅР° Р»РѕРєР°С‚РѕСЂ
+//    //    Методы по работе с вебэлементами
+//    public void click(By locator) { // Кликаем на локатор
 //        driver.findElement(locator).click();
 //    }
 //

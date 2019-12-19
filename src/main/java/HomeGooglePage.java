@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomeGooglePage {
 
-    private WebDriver driver; // Инициализируем драйвер
+    public WebDriver driver; // Инициализируем драйвер
 
     public HomeGooglePage(WebDriver driver) { // Создаем конструктор страницы и передаем в него вебдрайвер
         this.driver = driver;
@@ -22,7 +22,11 @@ public class HomeGooglePage {
     private By bigImageFilter = By.xpath("//div[text()='Большие']"); // попробовать объединить с bigImageSize
     private By spanText = By.xpath("//span[text()='ivi.ru']"); // Нужен для проверки кол-ва картинок со ссылками на ivi
     private By nextPageButton = By.xpath("//span[text()='Следующая']"); // дубль из гуглплейпейдж. удалить где-то
+    private By previousPageButton = By.xpath("//span[text()='Предыдущая']");
     private By googlePlayLink = By.xpath("//cite[contains(text(), 'https://play.google.com')]");
+    private By page5SearchResult = By.xpath("//a[@aria-label='Page 5']");
+    private By appRaitingSearch = By.xpath("//div[contains(text(), 'Рейтинг')]"); // //div[@class='slp f']
+    private By wikiLink = By.xpath("//cite[contains(text(), 'https://ru.wikipedia.org')]");
 
 
 //    Методы по работе с вебэлементами
@@ -70,6 +74,8 @@ public void click(By locator) { // Кликаем на локатор
 
 
 
+
+
     public HomeGooglePage findImagesWithBigSize(){ // Применяем настройки
         clickImages();
         clickSettings();
@@ -87,6 +93,30 @@ public void click(By locator) { // Кликаем на локатор
 
 
 
+    public HomeGooglePage clickPage5SearchResult(){
+        driver.findElement(page5SearchResult).click();
+        return this;
+    }
+
+    public HomeGooglePage clickPreviousPageButton(){
+        driver.findElement(previousPageButton).click();
+        return this;
+    }
+
+    //    Методы по переходам на другие страницы сайта
+
+    public GooglePlayPage clickGooglePlayLink () {
+        click(googlePlayLink);
+        return new GooglePlayPage(driver);
+    }
+
+    public WikipediaPage wikiGooglePlayLink () {
+        click(wikiLink);
+        return new WikipediaPage(driver);
+    }
+
+
+
     //    Получаем текст атрибутов
 
     public String getTextsignIn(){
@@ -96,6 +126,50 @@ public void click(By locator) { // Кликаем на локатор
     public String getTextbigImageFilter(){
         return driver.findElement(bigImageFilter).getText();
     }
+
+    public String getTextWithRaiting(){
+        return driver.findElement(appRaitingSearch).getText();
+    }
+
+//    public String getWikiLink(){
+//        return driver.findElement(wikiLink).getText();
+//    }
+
+
+
+
+    public String splitTextRaitingSearch() {
+        String str = getTextWithRaiting();
+        String[] subStr;
+        String delimeter = " "; // Разделитель
+        subStr = str.split(delimeter); // Разделения строки str с помощью метода split()
+        String st = (subStr[1]);
+        System.out.println(st);
+        return st;
+    }
+
+//String res = splitTextRaitingSearch();
+
+//    public String newString(){
+//        for (String retval : getTextWithRaiting().split(" ", 0)) {
+//            System.out.println(retval);
+//        }
+//        return newString();
+//    }
+
+//        public String newString(){
+//            String str = getTextWithRaiting();
+//            String[] subStr;
+//            String delimeter = " "; // Разделитель
+//            subStr = str.split(delimeter); // Разделения строки str с помощью метода split()
+//            // Вывод результата на экран
+//            for(int i = 0; i < subStr.length; i++) {
+//                System.out.println(subStr[i]);
+//            }
+//            return newString();
+//    }
+
+
 
 
     //  Ищем Элементы на странице и получаем их количество
@@ -107,6 +181,16 @@ public void click(By locator) { // Кликаем на локатор
     public int getGooglePlayLinkSize(){
         return driver.findElements(googlePlayLink).size();
     }
+
+    public int getWikiLinkSize(){
+        return driver.findElements(googlePlayLink).size();
+    }
+
+
+
+    //    Методы по переходам на другие страницы сайта
+
+
 
 
 
