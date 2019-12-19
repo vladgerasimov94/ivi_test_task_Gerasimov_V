@@ -11,7 +11,7 @@ public class WikipediaPage {
 
 
     //    Описываем локаторы страницы
-    public By linkIviRu = By.xpath("//a[text()='ivi.ru']");
+    public By linkIviRu = By.xpath("//table[@class='infobox']//a[text()='ivi.ru']");    //   //a[text()='ivi.ru']
 
 
     public String getTextInLink(){

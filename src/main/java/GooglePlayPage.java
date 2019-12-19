@@ -8,7 +8,7 @@ public class GooglePlayPage {
     public GooglePlayPage(WebDriver driver) { // Создаем конструктор страницы и передаем в него вебдрайвер
         this.driver = driver;
     }
-    GooglePlayPage googlePlayPage;
+//    GooglePlayPage googlePlayPage;
 
     //    Описываем локаторы страницы
     public By appRaitingGooglePlay = By.xpath("//div[@class='BHMmbe']");
