@@ -6,39 +6,38 @@ public class TestsWiki extends TestBase {
 
 
 
-//
-//    @Test
-//    public void wikiTests() {
-//        homeGooglePage.enterText("ivi");
-//        String textSignInButton = homeGooglePage.getTextsignIn();
-//        Assert.assertEquals("Р’РѕР№С‚Рё", textSignInButton);
-//        homeGooglePage.clickPage5SearchResult();
-//        searchLinksOnPages123();
-//        GooglePlayPage googlePlayPage = new GooglePlayPage(driver);
-//        String getRaitingGP = googlePlayPage.getTextWithRaitingGooglePlay();
-//        System.out.println("РђРґС‹РЅ " + getRaitingGP);
-//        String split = homeGooglePage.splitTextRaitingSearch();
-//        Assert.assertEquals(getRaitingGP, split);
-//    }
-//
-//
-//
-//
-//
-//
-//    private void searchLinksOnPages123() {
-//        for (int i = 5; i >= 1; i--) { // СЃРґРµР»Р°Р» РѕР±СЂР°С‚РЅС‹Р№ РїРµСЂРµС…РѕРґ РїРѕ СЃС‚СЂР°РЅРёС†Р°Рј, С‚.Рє. РІСЃСЏР°РєС‚СѓР°Р»СЊРЅР°СЏ РёРЅС„Р° РІСЃРµРіРґР° РЅР° РїРµСЂРІРѕР№, Р° С†РёРєР» РЅРµРїР»РѕС…Рѕ Р±С‹ РїСЂРѕРіРЅР°С‚СЊ
-//            int getWikiLinkSize = homeGooglePage.getWikiLinkSize();
-//            if (getWikiLinkSize > 0) {
-//                System.out.println("РќР° СЃС‚СЂР°РЅРёС†Рµ " + i + " РЅР°С€РµР» " + getWikiLinkSize + " СЃСЃС‹Р»РєСѓ" );
-//
-//                homeGooglePage.wikiGooglePlayLink();
-//            } else {
-//                System.out.println("РќР° СЃС‚СЂР°РЅРёС†Рµ " + i + " РќРµ РЅР°С€РµР» СЃСЃС‹Р»РѕРє" ); // Р—РґРµСЃСЊ РЅР°РґРѕ СЃРґРµР»Р°С‚СЊ РІРѕР·РІСЂР°С‚ РЅР° 1 СЃС‚СЂР°РЅРёС†Сѓ Рё РїРµСЂРµС…РѕРґ РІ РіСѓРіР» РїР»РµР№!!!
-//                JavascriptExecutor jsx = (JavascriptExecutor) driver;
-//                jsx.executeScript("window.scrollBy(0, 3000)", "");
-//                homeGooglePage.clickPreviousPageButton();
-//            }
-//        }
-//    }
+
+    @Test
+    public void wikiTests() {
+        homeGooglePage.enterText("ivi");
+        String textSignInButton = homeGooglePage.getTextsignIn();
+        Assert.assertEquals("Войти", textSignInButton);
+        homeGooglePage.clickPage5SearchResult();
+        searchLinksOnPages123();
+        WikipediaPage wikipediaPage = new WikipediaPage(driver);
+
+        String getLinkWiki = wikipediaPage.getTextInLink();
+        Assert.assertEquals("ivi.ru", getLinkWiki);
+        System.out.println("Нашел на Вики ссылку на сайт: " + getLinkWiki);
+    }
+
+
+
+
+
+
+    private void searchLinksOnPages123() {
+        for (int i = 5; i >= 1; i--) { // сделал обратный переход по страницам, т.к. всяактуальная инфа всегда на первой, а цикл неплохо бы прогнать
+            int getWikiLinkSize = homeGooglePage.getWikiLinkSize();
+            if (getWikiLinkSize > 0) {
+                System.out.println("На странице " + i + " нашел " + getWikiLinkSize + " ссылку" );
+                homeGooglePage.wikiGooglePlayLink();
+            } else {
+                System.out.println("На странице " + i + " Не нашел ссылок" ); // Здесь надо сделать возврат на 1 страницу и переход в гугл плей!!!
+                JavascriptExecutor jsx = (JavascriptExecutor) driver;
+                jsx.executeScript("window.scrollBy(0, 3000)", "");
+                homeGooglePage.clickPreviousPageButton();
+            }
+        }
+    }
 }

@@ -3,14 +3,14 @@ import org.openqa.selenium.WebDriver;
 
 public class WikipediaPage {
 
-    WebDriver driver; // РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РґСЂР°Р№РІРµСЂ
+    WebDriver driver; // Инициализируем драйвер
 
-    public WikipediaPage(WebDriver driver) { // РЎРѕР·РґР°РµРј РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃС‚СЂР°РЅРёС†С‹ Рё РїРµСЂРµРґР°РµРј РІ РЅРµРіРѕ РІРµР±РґСЂР°Р№РІРµСЂ
+    public WikipediaPage(WebDriver driver) { // Создаем конструктор страницы и передаем в него вебдрайвер
         this.driver = driver;
     }
 
 
-    //    РћРїРёСЃС‹РІР°РµРј Р»РѕРєР°С‚РѕСЂС‹ СЃС‚СЂР°РЅРёС†С‹
+    //    Описываем локаторы страницы
     public By linkIviRu = By.xpath("//a[text()='ivi.ru']");
 
 
