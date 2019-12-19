@@ -1,5 +1,7 @@
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -18,7 +20,6 @@ public class TestBase {
 
     @BeforeMethod
     public void setUp(){
-//        System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
         System.out.println("Привет хозяин, пытаюсь запустить автотест от: " + currentDate());
         System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
         driver = new ChromeDriver();
@@ -29,20 +30,44 @@ public class TestBase {
     }
 
 
-
-//    public String splitText(String pageTextWithRaiting) {
-//        String str = pageTextWithRaiting;
-//        String[] subStr;
-//        String delimeter = " "; // Разделитель
-//        subStr = str.split(delimeter); // Разделения строки str с помощью метода split()
-//        String st = (subStr[1]);
-//        System.out.println(st);
-//        return st;
-//    }
-
-
     @AfterMethod
     public void tearDown(){
         driver.quit();
+    }
+
+    protected void searchAndGoGooglePlayLinksOnPages() {
+        for (int i = 5; i >= 1; i--) { // сделал обратный переход по страницам, т.к. всяактуальная инфа всегда на первой, а цикл неплохо бы прогнать
+            int getGooglePlayLinkSize = homeGooglePage.getGooglePlayLinkSize();
+            if (getGooglePlayLinkSize > 0) {
+                System.out.println("На странице " + i + " нашел " + getGooglePlayLinkSize + " ссылку" );
+                String split = homeGooglePage.splitTextRaitingSearch();
+                homeGooglePage.clickGooglePlayLink();
+                GooglePlayPage googlePlayPage = new GooglePlayPage(driver);
+                String getRaitingGP = googlePlayPage.getTextWithRaitingGooglePlay();
+                System.out.println("Рейтинг из GooglePlay " + getRaitingGP);
+                System.out.println("Рейтинг из странички поиска Google " + split);
+                Assert.assertEquals(getRaitingGP, split);
+            } else {
+                System.out.println("На странице " + i + " Не нашел ссылок" ); // Здесь надо сделать возврат на 1 страницу и переход в гугл плей!!!
+                JavascriptExecutor jsx = (JavascriptExecutor) driver;
+                jsx.executeScript("window.scrollBy(0, 3000)", "");
+                homeGooglePage.clickPreviousPageButton();
+            }
+        }
+    }
+
+    protected void searchAndGoWikiLinksOnPages() {
+        for (int i = 5; i >= 1; i--) { // сделал обратный переход по страницам, т.к. всяактуальная инфа всегда на первой, а цикл неплохо бы прогнать
+            int getWikiLinkSize = homeGooglePage.getWikiLinkSize();
+            if (getWikiLinkSize > 0) {
+                System.out.println("На странице " + i + " нашел " + getWikiLinkSize + " ссылку" );
+                homeGooglePage.clickWikiLink();
+            } else {
+                System.out.println("На странице " + i + " Не нашел ссылок" ); // Здесь надо сделать возврат на 1 страницу и переход в гугл плей!!!
+                JavascriptExecutor jsx = (JavascriptExecutor) driver;
+                jsx.executeScript("window.scrollBy(0, 3000)", "");
+                homeGooglePage.clickPreviousPageButton();
+            }
+        }
     }
 }

@@ -73,9 +73,6 @@ public void click(By locator) { // Кликаем на локатор
 
 
 
-
-
-
     public HomeGooglePage findImagesWithBigSize(){ // Применяем настройки
         clickImages();
         clickSettings();
@@ -86,11 +83,6 @@ public void click(By locator) { // Кликаем на локатор
         return this;
     }
 
-//    public HomeGooglePage clickNextPageButton () { ToDo Удалить, т.к. используем переход на предыдущ. стр.
-//        click(nextPageButton);
-//        return this;
-//    }
-
 
 
     public HomeGooglePage clickPage5SearchResult(){
@@ -98,7 +90,7 @@ public void click(By locator) { // Кликаем на локатор
         return this;
     }
 
-    public HomeGooglePage clickPreviousPageButton(){
+    public HomeGooglePage clickPreviousPageButton(){ // Переход на предыдущую страницу поиска
         driver.findElement(previousPageButton).click();
         return this;
     }
@@ -131,10 +123,6 @@ public void click(By locator) { // Кликаем на локатор
         return driver.findElement(appRaitingSearch).getText();
     }
 
-//    public String getWikiLink(){ ToDo Удалить, т.к. мы считываем кол-во ниже
-//        return driver.findElement(wikiLink).getText();
-//    }
-
 
 
 
@@ -144,32 +132,8 @@ public void click(By locator) { // Кликаем на локатор
         String delimeter = " "; // Разделитель
         subStr = str.split(delimeter); // Разделения строки str с помощью метода split()
         String st = (subStr[1]);
-//        System.out.println("Рейтинг из странички поиска Google " + st);
         return st;
     }
-
-//String res = splitTextRaitingSearch();
-
-//    public String newString(){
-//        for (String retval : getTextWithRaiting().split(" ", 0)) {
-//            System.out.println(retval);
-//        }
-//        return newString();
-//    }
-
-//        public String newString(){
-//            String str = getTextWithRaiting();
-//            String[] subStr;
-//            String delimeter = " "; // Разделитель
-//            subStr = str.split(delimeter); // Разделения строки str с помощью метода split()
-//            // Вывод результата на экран
-//            for(int i = 0; i < subStr.length; i++) {
-//                System.out.println(subStr[i]);
-//            }
-//            return newString();
-//    }
-
-
 
 
     //  Ищем Элементы на странице и получаем их количество
@@ -185,13 +149,6 @@ public void click(By locator) { // Кликаем на локатор
     public int getWikiLinkSize(){
         return driver.findElements(googlePlayLink).size();
     }
-
-
-
-    //    Методы по переходам на другие страницы сайта
-
-
-
 
 
 }
