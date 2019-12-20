@@ -28,7 +28,7 @@ public class TestBase {
         driver.get("https://www.google.com/"); //Переходим на стартовую страницу
         homeGooglePage = new HomeGooglePage(driver); // передаем драйвер
         homeGooglePage.enterText("ivi"); // Ищем в гугле текст "ivi"
-        String textSignInButton = homeGooglePage.getTextsignIn(); // Извлекаем текст из кнопки для авторизации в Google для проверки регистрации пользователя
+        String textSignInButton = homeGooglePage.getTextSignIn(); // Извлекаем текст из кнопки для авторизации в Google для проверки регистрации пользователя
         Assert.assertEquals("Войти", textSignInButton); // Проверяем, что пользователь не зарегистрирован в Google
     }
 
@@ -60,8 +60,8 @@ public class TestBase {
             }
         }
     }
-// Цикл по поиску ссылок на страницах 1:5 и переход на Вики:
 
+// Цикл по поиску ссылок на страницах 1:5 и переход на Вики:
 
     protected void searchAndGoWikiLinksOnPages() {
         for (int i = 5; i >= 1; i--) { // Запускаем цикл по переходу от 5 до 1 страницы по убыванию

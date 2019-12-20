@@ -13,7 +13,7 @@ public class TestsGooglePlay extends TestBase {
     @Test
     public void testRaitingInSearchAndGooglePlay() {
         homeGooglePage.clickPage5SearchResult(); // Переходим на 5 страницу результатов поиска. Начинаем поиск с нее и идем до 1 стр.
-        searchAndGoGooglePlayLinksOnPages(); // !Проверка внутри цикла! Цикл по поиску ссылок на страницах 1:5 и переход в GooglePlay. Подробности в TestBase
+        searchAndGoGooglePlayLinksOnPages(); // !Проверка внутри цикла! Цикл по поиску ссылок на страницах 1:5 и переход в GooglePlay + сравнение рейтинга. Подробности в TestBase
     }
 
 

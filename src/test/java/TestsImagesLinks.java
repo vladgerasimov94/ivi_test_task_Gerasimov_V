@@ -15,7 +15,7 @@ public class TestsImagesLinks extends TestBase {
     @Test
     public void searchBigImagesWithLinks() {
         homeGooglePage.findImagesWithBigSize(); // Выполняем метод по применению фильтра для поиска больших картинок
-        String textLink = homeGooglePage.getTextbigImageFilter(); // На поисковой странице берем текст из установленного фильтра по большим картинкам
+        String textLink = homeGooglePage.getTextBigImageFilter(); // На поисковой странице берем текст из установленного фильтра по большим картинкам
         int getLinkSize = homeGooglePage.getLinkIviRuSize(); // Вызываем метод по поиску ссылок ivi в картинках из выдачи и считаем их кол-во
         Assert.assertEquals(textLink, "Большие"); // Проверяем, что в выдаче результатов по большим картинкам установлен фильтр "Большие"
         Assert.assertTrue(getLinkSize >= 3, "Количество ссылок в раздаче < 3"); // Проверяем количество ссылок, ведущих на сайт на странице. Если меньше 3, выводим текст

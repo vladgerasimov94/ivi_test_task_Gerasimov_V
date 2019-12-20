@@ -108,11 +108,11 @@ public class HomeGooglePage {
 
 //    Извлекаем текст из атрибутов:
 
-    public String getTextsignIn() { // Для проверки, зарегистрирован ли пользователь
+    public String getTextSignIn() { // Для проверки, зарегистрирован ли пользователь
         return driver.findElement(signInButton).getText();
     }
 
-    public String getTextbigImageFilter() { // Для проверки примененного фильтра в результатах поиска
+    public String getTextBigImageFilter() { // Для проверки примененного фильтра в результатах поиска
         return driver.findElement(bigImageFilter).getText();
     }
 
