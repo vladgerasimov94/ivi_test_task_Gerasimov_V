@@ -46,17 +46,17 @@
 	- Ввести команду "gradle -version"
 	- Убедиться, что в консоли указана установленная версия
 
-3. Установить среду разработки IntelliJ Idea:
+4. Установить среду разработки IntelliJ Idea:
 
 Загрузить с оф. сайта: "https://www.jetbrains.com/ru-ru/idea/"
 
-4. Клонировать проект из GitHub:
+5. Клонировать проект из GitHub:
 
 	- Если Git не установлен:
 		- Скачать Git Desktop с оф. сайта
 	- Клонировать репозиторий по URL: "https://github.com/vladgerasimov94/ivi_test_task_Gerasimov_V.git"
 
-5. Запустить проект в Intellij Idea:
+6. Запустить проект в Intellij Idea:
 	- Выбрать Open project
 	- Выбрать директорию с клонированным из Git проектом
 
