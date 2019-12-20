@@ -1,5 +1,5 @@
-<suite name="runAllTests" >
-    <test name="UploadDebtor" >
+<suite name="runAllTestsIviRu" >
+    <test name="runAllTests" >
         <classes>
             <class name="TestsGooglePlay" />
             <class name="TestsImagesLinks" />
